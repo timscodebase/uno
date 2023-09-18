@@ -55,6 +55,8 @@
 	}
 </script>
 
+<h1 class="text-3xl font-bold underline">Hello world!</h1>
+
 <form method="POST" on:submit|preventDefault={deal}>
 	<div>
 		<label for="number_of_players" />
@@ -70,5 +72,8 @@
 	</div>
 </form>
 
-<style>
+<style lang="postcss">
+	:global(html) {
+		background-color: theme(colors.gray.100);
+	}
 </style>

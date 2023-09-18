@@ -1,38 +1,25 @@
-# create-svelte
+# SvelteKit Uno Game
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+This is a simple Uno game made with SvelteKit and Svelte. We will style it with TailwindCSS and use Socket.io for multiplayer.
 
-## Creating a project
+---
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Getting Started
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Clone the repository and install the dependencies.
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+git clone https://github.com/timscodebase/uno.git
+cd uno
+npm install  // or pnpm install
 ```
 
-## Building
+### Prerequisites
 
-To create a production version of your app:
+- You will need to have Node.js installed on your machine. You can download it from [here](https://nodejs.org/en/download/).
+- You will need to have a GitHub account. You can create one [here](https://github.com/).
+- [PnPm](https://pnpm.io/) is not required, but greatly improves proformance. You can install it with `npm install -g pnpm`.
 
-```bash
-npm run build
-```
+#### Hacktoberfest 2023
 
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+This repository is for Hacktoberfest 2023. Join us in creating a fun game for everyone to play while learning about SvelteKit, TailwindCSS and Socket.io.

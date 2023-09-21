@@ -26,10 +26,10 @@
 	}
 </script>
 
-<h1 class="text-6xl font-bold">Hello world!</h1>
+<h1 class="text-6xl font-bold">UNO!</h1>
 
 <form on:submit={deal}>
-	<label for="number_of_players" />
+	<label for="number_of_players"> Number of players (2-10): </label>
 	<input
 		type="number"
 		name="number_of_players"

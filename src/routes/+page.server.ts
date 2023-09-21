@@ -51,12 +51,14 @@ function generateUnoWildCards(): UnoCardType[] {
 		cards.push({
 			color: 'Wild',
 			value: 'Wild',
-			flipped: false
+			flipped: false,
+			isWild: true
 		})
 		cards.push({
 			color: 'Wild',
 			value: 'Wild Draw Four',
-			flipped: false
+			flipped: false,
+			isWild: true
 		})
 	}
 
@@ -71,12 +73,14 @@ function generateUnoCards(): UnoCardType[] {
 			cards.push({
 				color: UnoColor[color as keyof typeof UnoColor],
 				value: UnoValue[value as keyof typeof UnoValue],
-				flipped: false
+				flipped: false,
+				isWild: false
 			})
 			cards.push({
 				color: UnoColor[color as keyof typeof UnoColor],
 				value: UnoValue[value as keyof typeof UnoValue],
-				flipped: false
+				flipped: false,
+				isWild: false
 			})
 		}
 	}

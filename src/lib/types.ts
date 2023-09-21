@@ -2,6 +2,7 @@ export type UnoCardType = {
 	color: string
 	value: string
 	flipped: boolean
+	isWild: boolean
 }
 
 export type UnoColorType = 'Red' | 'Yellow' | 'Green' | 'Blue'

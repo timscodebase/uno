@@ -34,6 +34,7 @@
 	<form class="player_form" on:submit={deal}>
 		<label for="number_of_players"> Number of players (2-10): </label>
 		<input
+			class="px-6 py-3 rounded-full text-center"
 			type="number"
 			name="number_of_players"
 			id="number_of_players"

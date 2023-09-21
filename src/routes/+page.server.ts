@@ -1,35 +1,18 @@
-import type { PageServerLoad, Actions } from './$types'
-
-type UnoCardType = {
-	color: UnoColorType | WildCardType
-	value: UnoValueType | WildCardType
-}
-
-type UnoColorType = 'Red' | 'Yellow' | 'Green' | 'Blue'
-type UnoValueType =
-	| '0'
-	| '1'
-	| '2'
-	| '3'
-	| '4'
-	| '5'
-	| '6'
-	| '7'
-	| '8'
-	| '9'
-	| 'Skip'
-	| 'Reverse'
-	| 'Draw Two'
-type WildCardType = 'Wild' | 'Wild Draw Four'
+import type { PageServerLoad } from './$types'
+import type { UnoCardType } from '$lib/types'
 
 function shuffle(unoDeck: UnoCardType[]) {
-	let currentIndex = unoDeck.length,
-		temporaryValue: UnoCardType,
-		randomIndex: number
+	let currentIndex = unoDeck.length
+	let temporaryValue
+	let randomIndex
+
+	// While there remain elements to shuffle...
 	while (0 !== currentIndex) {
+		// Pick a remaining element...
 		randomIndex = Math.floor(Math.random() * currentIndex)
 		currentIndex -= 1
 
+		// And swap it with the current element.
 		temporaryValue = unoDeck[currentIndex]
 		unoDeck[currentIndex] = unoDeck[randomIndex]
 		unoDeck[randomIndex] = temporaryValue
@@ -67,11 +50,13 @@ function generateUnoWildCards(): UnoCardType[] {
 	for (let i = 0; i < 4; i++) {
 		cards.push({
 			color: 'Wild',
-			value: 'Wild'
+			value: 'Wild',
+			flipped: false
 		})
 		cards.push({
 			color: 'Wild',
-			value: 'Wild Draw Four'
+			value: 'Wild Draw Four',
+			flipped: false
 		})
 	}
 
@@ -84,12 +69,14 @@ function generateUnoCards(): UnoCardType[] {
 	for (const color in UnoColor) {
 		for (const value in UnoValue) {
 			cards.push({
-				color: UnoColor[color],
-				value: UnoValue[value]
+				color: UnoColor[color as keyof typeof UnoColor],
+				value: UnoValue[value as keyof typeof UnoValue],
+				flipped: false
 			})
 			cards.push({
-				color: UnoColor[color],
-				value: UnoValue[value]
+				color: UnoColor[color as keyof typeof UnoColor],
+				value: UnoValue[value as keyof typeof UnoValue],
+				flipped: false
 			})
 		}
 	}
@@ -99,7 +86,7 @@ function generateUnoCards(): UnoCardType[] {
 
 function generate_shuffled_deck(): UnoCardType[] {
 	const regularCards = generateUnoCards()
-	const wildCards: WildCardType[] = generateUnoWildCards()
+	const wildCards = generateUnoWildCards()
 
 	const unoDeck: UnoCardType[] = regularCards.concat(wildCards)
 

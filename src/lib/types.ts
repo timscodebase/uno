@@ -1,12 +1,24 @@
-export type Uno_Card_Type = {
-  value: string;
-  color: string;
-  flipped: boolean;
-  selected: boolean;
-  disabled: boolean;
-  isWild: boolean;
-  isWildDrawFour: boolean;
-  isDrawTwo: boolean;
-  isReverse: boolean;
-  isSkip: boolean;
+export type UnoCardType = {
+	color: string
+	value: string
+	flipped: boolean
 }
+
+export type UnoColorType = 'Red' | 'Yellow' | 'Green' | 'Blue'
+
+export type UnoValueType =
+	| '0'
+	| '1'
+	| '2'
+	| '3'
+	| '4'
+	| '5'
+	| '6'
+	| '7'
+	| '8'
+	| '9'
+	| 'Skip'
+	| 'Reverse'
+	| 'Draw Two'
+
+export type WildCardType = 'Wild' | 'Wild Draw Four'

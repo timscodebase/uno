@@ -7,9 +7,15 @@
 </script>
 
 {#if !flipped}
-	<div class="card_back" />
+	<div class="card_back">Uno</div>
 {:else}
-	<div class="card_back" />
+	<div class="card_front">
+		<div style="background: {color}">
+			<div class="top-left-value">{value}</div>
+			<div class="value-icon" />
+			<div class="bottom-right-value">{value}</div>
+		</div>
+	</div>
 {/if}
 
 <style>

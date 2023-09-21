@@ -21,28 +21,28 @@ function shuffle(unoDeck: UnoCardType[]) {
 	return unoDeck
 }
 
-enum UnoColor {
-	Red = 'Red',
-	Yellow = 'Yellow',
-	Green = 'Green',
-	Blue = 'Blue'
-}
+const UnoColor = new Map([
+	['Red', 'Red'],
+	['Yellow', 'Yellow'],
+	['Green', 'Green'],
+	['Blue', 'Blue']
+])
 
-enum UnoValue {
-	Zero = '0',
-	One = '1',
-	Two = '2',
-	Three = '3',
-	Four = '4',
-	Five = '5',
-	Six = '6',
-	Seven = '7',
-	Eight = '8',
-	Nine = '9',
-	Skip = 'Skip',
-	Reverse = 'Reverse',
-	DrawTwo = 'Draw Two'
-}
+const UnoValue = new Map([
+	['Zero', '0'],
+	['One', '1'],
+	['Two', '2'],
+	['Three', '3'],
+	['Four', '4'],
+	['Five', '5'],
+	['Six', '6'],
+	['Seven', '7'],
+	['Eight', '8'],
+	['Nine', '9'],
+	['Skip', 'Skip'],
+	['Reverse', 'Reverse'],
+	['DrawTwo', 'Draw Two']
+])
 
 function generateUnoWildCards(): UnoCardType[] {
 	const cards: UnoCardType[] = []
@@ -68,8 +68,8 @@ function generateUnoWildCards(): UnoCardType[] {
 function generateUnoCards(): UnoCardType[] {
 	const cards: UnoCardType[] = []
 
-	for (const color in UnoColor) {
-		for (const value in UnoValue) {
+	for (const [color, colorValue] of UnoColor) {
+		for (const [value, valueText] of UnoValue) {
 			cards.push({
 				color: UnoColor[color as keyof typeof UnoColor],
 				value: UnoValue[value as keyof typeof UnoValue],
@@ -91,9 +91,10 @@ function generateUnoCards(): UnoCardType[] {
 function generate_shuffled_deck(): UnoCardType[] {
 	const regularCards = generateUnoCards()
 	const wildCards = generateUnoWildCards()
-
 	const unoDeck: UnoCardType[] = regularCards.concat(wildCards)
-
+	unoDeck.forEach((card, index) => {
+		card.top = index
+	})
 	return shuffle(unoDeck)
 }
 

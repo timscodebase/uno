@@ -1,17 +1,50 @@
 <script lang="ts">
-	import { Button } from '$lib'
-	import { H1 } from '$lib'
 	import { onMount } from 'svelte'
 	import type { PageData } from './$types'
+
+	// Components
+	import { Button } from '$lib'
+	import { H1 } from '$lib'
 
 	type PlayersType = Array<Array<string>>
 
 	// I want to move this logic to a store, or other file, but I'm not sure how to do it
 	export let data: PageData
 	const { shuffled_deck } = data
+	let topCardIndex = 0
 
-	let number_of_players_input: HTMLInputElement
+	$: cards = shuffled_deck
+
 	let players = [] as PlayersType
+	let number_of_players_input: HTMLInputElement
+	let remain_cards: number = shuffled_deck.length
+	console.log('Remain Cards: ', remain_cards)
+
+	const reorderCards = () => {
+		cards = cards.map((card, index) => ({
+			...card,
+			zIndex: cards.length - index,
+			transform: `translateX(${index * 5}px) translateY(${index * 5}px)`
+		}))
+		topCardIndex = 0
+	}
+
+	const handleClick = () => {
+		if (topCardIndex >= 0 && topCardIndex < cards.length) {
+			const thisCard = cards[topCardIndex]
+			thisCard.top = -430
+
+			setTimeout(() => {
+				cards = [
+					...cards.slice(0, topCardIndex),
+					...cards.slice(topCardIndex + 1),
+					thisCard
+				]
+				reorderCards()
+				thisCard.top = 0
+			}, 500)
+		}
+	}
 
 	onMount(() => {
 		number_of_players_input = document.getElementById(
@@ -19,12 +52,18 @@
 		) as HTMLInputElement
 	})
 
-	function deal() {
+	function setupPlayers() {
 		const number_of_players = parseInt(number_of_players_input.value)
 		for (let i = 0; i < number_of_players; i++) {
 			players.push(shuffled_deck.splice(0, 7))
 		}
-		console.log(players)
+	}
+
+	function deal() {
+		setupPlayers()
+		console.log('Player Hands: ', players)
+		remain_cards = shuffled_deck.length
+		console.log('Remain Cards: ', remain_cards)
 	}
 </script>
 
@@ -43,7 +82,6 @@
 			id="number_of_players"
 			min="2"
 			max="10"
-			value="2"
 		/>
 		<Button type="submit">DEAL</Button>
 	</form>

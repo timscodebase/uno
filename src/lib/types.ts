@@ -1,8 +1,9 @@
-export type UnoCardType = {
+export interface UnoCardType {
 	color: string
 	value: string
 	flipped: boolean
 	isWild: boolean
+	top: number
 }
 
 export type UnoColorType = 'Red' | 'Yellow' | 'Green' | 'Blue'

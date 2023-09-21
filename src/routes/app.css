@@ -2,15 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --red: #ff0000;
-  --blue: #0000ff;
-  --green: #00ff00;
-  --yellow: #ffff00;
-  --forest-green: #228b22;
-  --dark-grey: #d2d2d2;
-}
-
 body {
   font-family: 'Alfa Slab One', cursive;
 }

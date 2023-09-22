@@ -11,40 +11,11 @@
 	// I want to move this logic to a store, or other file, but I'm not sure how to do it
 	export let data: PageData
 	const { shuffled_deck } = data
-	let topCardIndex = 0
-
-	$: cards = shuffled_deck
 
 	let players = [] as PlayersType
 	let number_of_players_input: HTMLInputElement
 	let remain_cards: number = shuffled_deck.length
 	console.log('Remain Cards: ', remain_cards)
-
-	const reorderCards = () => {
-		cards = cards.map((card, index) => ({
-			...card,
-			zIndex: cards.length - index,
-			transform: `translateX(${index * 5}px) translateY(${index * 5}px)`
-		}))
-		topCardIndex = 0
-	}
-
-	const handleClick = () => {
-		if (topCardIndex >= 0 && topCardIndex < cards.length) {
-			const thisCard = cards[topCardIndex]
-			thisCard.top = -430
-
-			setTimeout(() => {
-				cards = [
-					...cards.slice(0, topCardIndex),
-					...cards.slice(topCardIndex + 1),
-					thisCard
-				]
-				reorderCards()
-				thisCard.top = 0
-			}, 500)
-		}
-	}
 
 	onMount(() => {
 		number_of_players_input = document.getElementById(
@@ -74,7 +45,7 @@
 	<p>Play!</p>
 {:else}
 	<form class="player_form" on:submit={deal}>
-		<label for="number_of_players"> Number of players (2-10): </label>
+		<label for="number_of_players">Number of players (2-10): </label>
 		<input
 			class="border-4 px-5 py-2 rounded-full text-center bg-black bg-opacity-25 text-yellow"
 			type="number"

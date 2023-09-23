@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte'
 	import type { PageData } from './$types'
 	import type { PlayersType } from '$lib'
-	import { Button, deal, H1 } from '$lib'
+	import { Button, deal, Logo } from '$lib'
 
 	export let data: PageData
 	const { shuffled_deck } = data
@@ -25,12 +25,18 @@
 	}
 </script>
 
-<H1>UNO</H1>
-
 <!-- If players array is empty, shoe this -->
 {#if players.length !== 0}
-	<p>Play!</p>
+	<div class="p-4">
+		<div class="game_top">
+			<Logo />
+			<div class="card_deck">
+				<!-- Stack shuffles deck -->
+			</div>
+		</div>
+	</div>
 {:else}
+	<Logo />
 	<form class="player_form" on:submit={handleSubmit}>
 		<label for="number_of_players">Number of players (2-10): </label>
 		<input
@@ -60,5 +66,10 @@
 	.player_form {
 		width: 33.33333svw;
 		margin-top: 2rem;
+	}
+
+	.game_top {
+		display: flex;
+		justify-content: space-between;
 	}
 </style>

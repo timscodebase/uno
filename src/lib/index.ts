@@ -20,6 +20,9 @@ export { Button }
 import { deal } from './cards'
 export { deal }
 
+import Logo from './components/Logo'
+export { Logo }
+
 import H1 from './components/H1'
 export { H1 }
 

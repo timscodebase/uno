@@ -7,6 +7,8 @@ This is a simple Uno game made with SvelteKit and Svelte. We will style it with 
 Here is the structure for this project:
 ![Structure](./static/pics/uno-flow-1.png)
 
+
+
 Game Loop:
 
 ## Getting Started

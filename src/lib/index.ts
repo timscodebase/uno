@@ -17,11 +17,14 @@ export {
 import Button from './components/Button'
 export { Button }
 
-import deal from './cards'
+import { deal } from './cards'
 export { deal }
 
 import H1 from './components/H1'
 export { H1 }
+
+import { shuffle } from './cards'
+export { shuffle }
 
 import UnoCard from './components/UnoCard'
 export { UnoCard }

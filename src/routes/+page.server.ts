@@ -1,25 +1,6 @@
 import type { PageServerLoad } from './$types'
 import type { UnoCardType } from '$lib/types'
-
-function shuffle(unoDeck: UnoCardType[]) {
-	let currentIndex = unoDeck.length
-	let temporaryValue
-	let randomIndex
-
-	// While there remain elements to shuffle...
-	while (0 !== currentIndex) {
-		// Pick a remaining element...
-		randomIndex = Math.floor(Math.random() * currentIndex)
-		currentIndex -= 1
-
-		// And swap it with the current element.
-		temporaryValue = unoDeck[currentIndex]
-		unoDeck[currentIndex] = unoDeck[randomIndex]
-		unoDeck[randomIndex] = temporaryValue
-	}
-
-	return unoDeck
-}
+import { shuffle } from '$lib'
 
 const UnoColor = new Map([
 	['Red', 'Red'],
@@ -47,7 +28,7 @@ const UnoValue = new Map([
 function generateUnoWildCards(): UnoCardType[] {
 	const cards: UnoCardType[] = []
 
-	for (let i = 0; i < 4; i++) {
+	for (let i = 0; i < 2; i++) {
 		cards.push({
 			color: 'Wild',
 			value: 'Wild',
@@ -68,32 +49,32 @@ function generateUnoWildCards(): UnoCardType[] {
 function generateUnoCards(): UnoCardType[] {
 	const cards: UnoCardType[] = []
 
-	for (const [color, colorValue] of UnoColor) {
-		for (const [value, valueText] of UnoValue) {
+	for (const color of UnoColor.keys()) {
+		for (const value of UnoValue.keys()) {
 			cards.push({
-				color: UnoColor[color as keyof typeof UnoColor],
-				value: UnoValue[value as keyof typeof UnoValue],
+				color: UnoColor.get(color),
+				value: UnoValue.get(value),
 				flipped: false,
 				isWild: false
 			})
 			cards.push({
-				color: UnoColor[color as keyof typeof UnoColor],
-				value: UnoValue[value as keyof typeof UnoValue],
+				color: UnoColor.get(color),
+				value: UnoValue.get(value),
 				flipped: false,
 				isWild: false
 			})
 		}
 	}
 
-	return cards
+	return [...cards, ...generateUnoWildCards()]
 }
 
 function generate_shuffled_deck(): UnoCardType[] {
 	const regularCards = generateUnoCards()
 	const wildCards = generateUnoWildCards()
 	const unoDeck: UnoCardType[] = regularCards.concat(wildCards)
-	unoDeck.forEach((card, index) => {
-		card.top = index
+	unoDeck.forEach((card) => {
+		card.flipped = false
 	})
 	return shuffle(unoDeck)
 }

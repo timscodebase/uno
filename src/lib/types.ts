@@ -1,3 +1,5 @@
+export type PlayersType = UnoCardType[][]
+
 export interface UnoCardType {
 	color: string
 	value: string

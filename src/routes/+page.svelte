@@ -1,21 +1,19 @@
 <script lang="ts">
 	import { onMount } from 'svelte'
 	import type { PageData } from './$types'
+	import type { PlayersType } from '$lib'
 
 	// Components
 	import { Button } from '$lib'
 	import { H1 } from '$lib'
 
-	type PlayersType = Array<Array<string>>
-
 	// I want to move this logic to a store, or other file, but I'm not sure how to do it
 	export let data: PageData
+	import { deal } from '$lib'
 	const { shuffled_deck } = data
 
 	let players = [] as PlayersType
 	let number_of_players_input: HTMLInputElement
-	let remain_cards: number = shuffled_deck.length
-	console.log('Remain Cards: ', remain_cards)
 
 	onMount(() => {
 		number_of_players_input = document.getElementById(
@@ -23,18 +21,12 @@
 		) as HTMLInputElement
 	})
 
-	function setupPlayers() {
+	const handleSubmit = (e: Event): PlayersType => {
+		e.preventDefault()
 		const number_of_players = parseInt(number_of_players_input.value)
-		for (let i = 0; i < number_of_players; i++) {
-			players.push(shuffled_deck.splice(0, 7))
-		}
-	}
-
-	function deal() {
-		setupPlayers()
-		console.log('Player Hands: ', players)
-		remain_cards = shuffled_deck.length
-		console.log('Remain Cards: ', remain_cards)
+		players = deal(number_of_players, shuffled_deck)
+		console.log(players)
+		return players
 	}
 </script>
 
@@ -44,7 +36,7 @@
 {#if players.length !== 0}
 	<p>Play!</p>
 {:else}
-	<form class="player_form" on:submit={deal}>
+	<form class="player_form" on:submit={handleSubmit}>
 		<label for="number_of_players">Number of players (2-10): </label>
 		<input
 			class="border-4 px-5 py-2 rounded-full text-center bg-black bg-opacity-25 text-yellow"

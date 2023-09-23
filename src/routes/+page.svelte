@@ -2,14 +2,9 @@
 	import { onMount } from 'svelte'
 	import type { PageData } from './$types'
 	import type { PlayersType } from '$lib'
+	import { Button, deal, H1 } from '$lib'
 
-	// Components
-	import { Button } from '$lib'
-	import { H1 } from '$lib'
-
-	// I want to move this logic to a store, or other file, but I'm not sure how to do it
 	export let data: PageData
-	import { deal } from '$lib'
 	const { shuffled_deck } = data
 
 	let players = [] as PlayersType

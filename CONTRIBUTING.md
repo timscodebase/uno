@@ -18,7 +18,7 @@
 7. Celebrate your contribution to this project!
 8. Repeat!
 
-## Remember, This is supposed to be fun
+## Remember, this is supposed to be fun
 
 1. Make mistakes and brake the code!
 2. Learn, then then fix it,

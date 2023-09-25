@@ -18,6 +18,12 @@
 7. Celebrate your contribution to this project!
 8. Repeat!
 
+## Remember, This is supposed to be fun
+
+1. Make mistakes and brake the code!
+2. Learn, then then fix it,
+3. Repeat! 😀
+
 ## Code of Conduct
 
 This project and everyone participating in it is governed by the [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code.

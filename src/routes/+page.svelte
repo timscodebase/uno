@@ -3,7 +3,6 @@
 	import type { PageData } from './$types'
 	import type { PlayersType } from '$lib'
 	import { Button, deal, Logo } from '$lib'
-
 	export let data: PageData
 	const { shuffled_deck } = data
 
@@ -54,9 +53,9 @@
 	@tailwind base;
   @tailwind components;
   @tailwind utilities;
-  
+
 	@layer utilities {
-    :global(html) {
+    :global(body) {
       background-color: theme('colors.dark-green');
     }
   }

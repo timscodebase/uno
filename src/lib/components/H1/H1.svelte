@@ -1,3 +1,4 @@
+<!-- Adding text-color property in h1 class -->
 <h1
 	class="antialiased hover:subpixel-antialiased text-8xl font-bold
 mx-3 text-yellow shadow-prop"
@@ -6,6 +7,7 @@ mx-3 text-yellow shadow-prop"
 </h1>
 
 <style>
+	/* Adding tailwind classes for being used in styled components */
 @tailwind base;
   @tailwind components;
   @tailwind utilities;

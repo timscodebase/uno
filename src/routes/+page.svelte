@@ -58,6 +58,28 @@
     :global(body) {
       background-color: theme('colors.dark-green');
     }
+
+/* ------------------Code has been changed------------------- */
+	
+	/* form {
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.player_form {
+		width: 33.33333svw;
+		margin-top: 2rem;
+	}
+
+	.game_top {
+		display: flex;
+		justify-content: space-between;
+	} */
+
+
+	/* ------------------Code has been changed------------------- */
   }
 
 </style>

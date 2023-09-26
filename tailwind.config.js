@@ -16,6 +16,7 @@ export default {
       'light-grey': '#d2d2d2',
       'dark-gray': '#333333',
       'dark-grey': '#333333',
+      'h1-yellow': '#ffff00',
     },
     fontFamily: {
       sans: ['Monoton', 'cursive'],

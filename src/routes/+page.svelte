@@ -28,7 +28,7 @@
 <!-- If players array is empty, shoe this -->
 {#if players.length !== 0}
 	<div class="p-4">
-		<div class="game_top">
+		<div class="flex justify-between">
 			<Logo />
 			<div class="card_deck">
 				<!-- Stack shuffles deck -->
@@ -37,8 +37,7 @@
 	</div>
 {:else}
 	<Logo />
-	<form class="player_form" on:submit={handleSubmit}>
-		<label for="number_of_players">Number of players (2-10): </label>
+	<form class="grid grid-cols-2 items-center gap-4 w-1/3 mt-8 " on:submit={handleSubmit}>		<label for="number_of_players">Number of players (2-10): </label>
 		<input
 			class="border-4 px-5 py-2 rounded-full text-center bg-black bg-opacity-25 text-yellow"
 			type="number"
@@ -52,24 +51,14 @@
 {/if}
 
 <style lang="postcss">
-	:global(html) {
-		background-color: theme(colors.dark-green);
-	}
+	@tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+  
+	@layer utilities {
+    :global(html) {
+      background-color: theme('colors.dark-green');
+    }
+  }
 
-	form {
-		display: grid;
-		grid-template-columns: 2fr 1fr;
-		align-items: center;
-		gap: 1rem;
-	}
-
-	.player_form {
-		width: 33.33333svw;
-		margin-top: 2rem;
-	}
-
-	.game_top {
-		display: flex;
-		justify-content: space-between;
-	}
 </style>

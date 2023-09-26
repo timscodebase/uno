@@ -3,6 +3,8 @@
 	import type { PageData } from './$types'
 	import type { PlayersType } from '$lib'
 	import { Button, deal, Logo } from '$lib'
+	import TailwindCss from '$lib/TailwindCSS.svelte';
+
 	export let data: PageData
 	const { shuffled_deck } = data
 
@@ -24,6 +26,7 @@
 	}
 </script>
 
+<TailwindCss/>
 <!-- If players array is empty, shoe this -->
 {#if players.length !== 0}
 	<div class="p-4">

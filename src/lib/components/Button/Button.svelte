@@ -1,5 +1,4 @@
 <script lang="ts">
-		import TailwindCss from '$lib/TailwindCSS.svelte';
 
 	export let type: 'button' | 'submit' | 'reset' = 'button'
 </script>

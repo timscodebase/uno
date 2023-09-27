@@ -26,11 +26,29 @@ cd uno
 npm install  // or pnpm install
 ```
 
+To run the project:
+```bash
+npx vite build
+npm run dev
+```
+
 ### Prerequisites
 
 - You will need to have Node.js installed on your machine. You can download it from [here](https://nodejs.org/en/download/).
 - You will need to have a GitHub account. You can create one [here](https://github.com/).
 - [PnPm](https://pnpm.io/) is not required, but greatly improves proformance. You can install it with `npm install -g pnpm`.
+
+### Using TailwindCSS with Svelte
+
+- To use TailwindCSS in the ```<style>``` tag, import tailwind classes in the following way:
+  ```
+  <style>
+    @tailwind base;
+	@tailwind components;
+	@tailwind utilities;
+  </style>
+  ```  
+
 
 #### Hacktoberfest 2023
 

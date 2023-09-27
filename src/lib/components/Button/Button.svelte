@@ -2,6 +2,7 @@
 	export let type: 'button' | 'submit' | 'reset' = 'button'
 </script>
 
+<!-- Making changes in button with tailwindcss -->
 <button
 	{type}
 	class="border-4 px-5 py-2 rounded-full text-center bg-black bg-opacity-25 text-yellow shadow-effect transition-shadow ease-in-out duration-100 transform translate-x-0 translate-y-0 hover:translate-x-3 hover:translate-y-3"

@@ -1,4 +1,6 @@
-# SvelteKit Uno Game
+# No Longer HACTOBERFEST elegable ☹️👎🏼
+
+## SvelteKit Uno Game
 
 ![UNO](./static/pics/uno_banner_1280x640.png)
 

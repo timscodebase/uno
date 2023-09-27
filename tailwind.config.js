@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/**/*.{html,js,svelte,ts}'],
+  content: [
+    './src/**/*.{html,svelte, ts,js}',
+    ],
+    purge: ["./src/app.html",'./src/**/*.{svelte,js,ts}'],
+
   theme: {
     colors: {
       'blue': '#0000ff',
@@ -14,6 +18,7 @@ export default {
       'light-grey': '#d2d2d2',
       'dark-gray': '#333333',
       'dark-grey': '#333333',
+      'h1-yellow': '#ffff00',
     },
     fontFamily: {
       sans: ['Monoton', 'cursive'],

@@ -20,4 +20,8 @@
 {/if}
 
 <style>
+	/* Adding tailwind classes for being used in styled components */
+	@tailwind base;
+  @tailwind components;
+  @tailwind utilities;
 </style>

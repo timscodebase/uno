@@ -58,9 +58,7 @@
   @tailwind utilities;
 
 	@layer utilities {
-    :global(body) {
-      background-color: theme('colors.dark-green');
-    }
+   
 
 /* ------------------Code has been changed------------------- */
 	

@@ -3,6 +3,8 @@ export default {
   content: [
     './src/**/*.{html,svelte, ts,js}',
     ],
+    purge: ["./src/app.html",'./src/**/*.{svelte,js,ts}'],
+
   theme: {
     colors: {
       'blue': '#0000ff',
@@ -25,6 +27,5 @@ export default {
     }
   },
   plugins: [],
-  purge: ["./index.html",'./src/**/*.{svelte,js,ts}'],
 }
 

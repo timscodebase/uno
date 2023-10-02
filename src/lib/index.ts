@@ -29,8 +29,5 @@ export { H1 }
 import { shuffle } from './cards'
 export { shuffle }
 
-import TailwindCSS from './components/TailwindCSS'
-export { TailwindCSS }
-
 import UnoCard from './components/UnoCard'
 export { UnoCard }

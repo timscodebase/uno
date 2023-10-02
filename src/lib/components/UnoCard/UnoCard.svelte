@@ -4,7 +4,7 @@
 	export let color: UnoColorType
 	export let value: UnoValueType
 	export let flipped: boolean = false
-	export let isWild: boolean = false
+	export let isWild: boolean | undefined = false
 </script>
 
 {#if !flipped}

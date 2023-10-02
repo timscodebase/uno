@@ -3,7 +3,6 @@
 	import type { PageData } from './$types'
 	import type { PlayersType } from '$lib'
 	import { Button, deal, Logo } from '$lib'
-	import { TailwindCSS } from '$lib'
 
 	export let data: PageData
 	const { shuffled_deck } = data
@@ -26,7 +25,6 @@
 	}
 </script>
 
-<TailwindCSS />
 <!-- If players array is empty, shoe this -->
 {#if players.length !== 0}
 	<div class="p-4">
@@ -60,27 +58,4 @@
 	@tailwind base;
 	@tailwind components;
 	@tailwind utilities;
-
-	@layer utilities {
-		/* ------------------Code has been changed------------------- */
-
-		/* form {
-		display: grid;
-		grid-template-columns: 2fr 1fr;
-		align-items: center;
-		gap: 1rem;
-	}
-
-	.player_form {
-		width: 33.33333svw;
-		margin-top: 2rem;
-	}
-
-	.game_top {
-		display: flex;
-		justify-content: space-between;
-	} */
-
-		/* ------------------Code has been changed------------------- */
-	}
 </style>

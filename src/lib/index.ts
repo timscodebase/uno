@@ -1,5 +1,5 @@
 import type {
-	PlayersType,
+	PlayerType,
 	UnoCardType,
 	UnoColorType,
 	UnoValueType,
@@ -7,7 +7,7 @@ import type {
 } from './types.ts'
 
 export {
-	PlayersType,
+	PlayerType,
 	UnoCardType,
 	UnoColorType,
 	UnoValueType,

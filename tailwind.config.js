@@ -1,11 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    './src/**/*.{html,svelte, ts,js}',
-    ],
-    purge: ["./src/app.html",'./src/**/*.{svelte,js,ts}'],
+  content: ['./src/**/*.{html,js,svelte,ts}'],
 
-  theme: {
+	theme: {
     colors: {
       'blue': '#0000ff',
       'red': '#ff0000',
@@ -27,6 +24,7 @@ export default {
     extend: {
     }
   },
-  plugins: [],
+
+	plugins: []
 }
 

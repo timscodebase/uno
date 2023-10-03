@@ -1,4 +1,10 @@
-export type PlayersType = UnoCardType[][]
+export interface PlayerType {
+	id: string
+	isHost: boolean
+	isCurrent: boolean
+	cards: UnoCardType[]
+	name: string
+}
 
 export interface UnoCardType {
 	color: string

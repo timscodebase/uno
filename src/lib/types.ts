@@ -9,7 +9,7 @@ export interface PlayerType {
 export interface UnoCardType {
 	color: string
 	value: string
-	flipped: boolean
+	isFlipped: boolean
 	isWild: boolean
 	top: number
 }

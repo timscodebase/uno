@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { onMount } from 'svelte'
 	import type { PageData } from './$types'
-	import type { PlayersType } from '$lib'
+	import type { PlayerType } from '$lib'
 	import { Button, deal, Logo } from '$lib'
 
 	export let data: PageData
 	const { shuffled_deck } = data
 
-	let players = [] as PlayersType
+	let players = [] as PlayerType[]
 	let number_of_players_input: HTMLInputElement
 
 	onMount(() => {
@@ -16,7 +16,7 @@
 		) as HTMLInputElement
 	})
 
-	const handleSubmit = (e: Event): PlayersType => {
+	const handleSubmit = (e: Event): PlayerType[] => {
 		e.preventDefault()
 		const number_of_players = parseInt(number_of_players_input.value)
 		players = deal(number_of_players, shuffled_deck)

@@ -32,13 +32,13 @@ function generateUnoWildCards(): UnoCardType[] {
 		cards.push({
 			color: 'Wild',
 			value: 'Wild',
-			flipped: false,
+			ifFlipped: false,
 			isWild: true
 		})
 		cards.push({
 			color: 'Wild',
 			value: 'Wild Draw Four',
-			flipped: false,
+			isFlipped: false,
 			isWild: true
 		})
 	}
@@ -54,13 +54,13 @@ function generateUnoCards(): UnoCardType[] {
 			cards.push({
 				color: UnoColor.get(color),
 				value: UnoValue.get(value),
-				flipped: false,
+				isFlipped: false,
 				isWild: false
 			})
 			cards.push({
 				color: UnoColor.get(color),
 				value: UnoValue.get(value),
-				flipped: false,
+				isFlipped: false,
 				isWild: false
 			})
 		}
@@ -81,7 +81,6 @@ function generate_shuffled_deck(): UnoCardType[] {
 
 export const load: PageServerLoad = () => {
 	const shuffled_deck = generate_shuffled_deck()
-	console.log('shuffled_deck', shuffled_deck)
 	return {
 		shuffled_deck
 	}
